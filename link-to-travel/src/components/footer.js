@@ -3,11 +3,11 @@ import React from 'react';
 const Footer = (props) => {
     console.log(props);
     return (
-        <div>
-            <h1>Forgot password</h1>
-            <h2>{props.name}</h2>
+        <footer className="App-footer">
+            <div>Forgot password</div>
+            <div>{props.name}</div>
             {props.children}
-        </div>
+        </footer>
     );
 }
 

@@ -7,7 +7,7 @@ class Homepage extends Component{
         return(      
             <div className="HomeContanier">
                 <Header />
-                <h1>Is Homepage here.</h1>
+                <h1>Content here...</h1>
                 <Footer name="Page ended"> this is Fopter components.</Footer>
             </div>
         );

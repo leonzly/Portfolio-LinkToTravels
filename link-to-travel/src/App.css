@@ -19,6 +19,43 @@
   color: white;
 }
 
+.App-footer {
+  background-color: #282c34;
+  min-height: 25vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: right;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding-top: 10vh;
+}
+
+.App-LogoContainer{
+  display: flex;
+  flex-grow: 1;
+}
+
+.App-LoginContainer {
+  text-align: left;
+  margin-right: 30px;
+}
+
+.App-LoginContainer .text {
+  font-size: 15px;
+  flex-grow: 1;
+}
+
+.txtboxSize {
+  border-radius: 5px;
+    height: 23px;
+    margin-right: 5px;
+}
+
 .App-link {
   color: #61dafb;
 }
