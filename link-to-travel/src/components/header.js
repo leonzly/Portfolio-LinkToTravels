@@ -14,7 +14,12 @@ import '../assets/css/header.css';
 class Header extends Component {
     constructor() {
         super()
-        this.state = { message: 'React-Bootstrap' }
+        this.state = {
+            message: 'React-Bootstrap',
+            visiable: true,
+            modalIsOpen: false,
+            hidden: false
+        }
     }
 
     changeMessage() {
@@ -22,6 +27,20 @@ class Header extends Component {
             message: 'sorry'
         }));
     }
+
+
+    loginContorl() {
+        this.setState({
+            isOpenModal: !this.state.modalIsOpen
+        })
+    }
+
+    closeModal() {
+        this.setState({
+            isOpenModal: this.state.hidden
+        })
+    }
+
 
     render() {
         return (
@@ -37,13 +56,26 @@ class Header extends Component {
                             <Form inline>
                                 <FormControl type="text" placeholder="Username" className="mr-sm-2" />
                                 <FormControl type="password" placeholder="Password" className="mr-sm-2" />
-                                <Button className="btnLogin" >Login</Button>
+                                <Button className="btnLogin" onClick={() => this.loginContorl()}>Login</Button>
                                 {/* <Button className="btnSignUp" onClick={() => this.changeMessage()}>Sign Up</Button> */}
                             </Form>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
-
+                <Modal show={this.state.isOpenModal} >
+                    <Modal.Header closeButton>
+                        <Modal.Title>Modal heading</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={() => this.closeModal()}>
+                            Close
+                        </Button>
+                        <Button variant="primary" >
+                            Save Changes
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
         );
     }
