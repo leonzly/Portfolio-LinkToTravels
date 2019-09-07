@@ -1,51 +1,32 @@
 import React, { Component } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
-import img1 from '../assets/image/a.jpg';
-import img2 from '../assets/image/b.jpg';
-import img3 from '../assets/image/c.jpg';
-
 class HomeCarousel extends Component {
     render() {
+
+        const images = [
+            { src: require('../assets/image/a.jpg'), alt: 'Your description here 1', title: 'First slide label', description: 'Nulla vitae elit libero, a pharetra augue mollis interdum.' },
+            { src: require('../assets/image/b.jpg'), alt: 'Your description here 2', title: 'Second slide label', description: 'Nulla vitae elit libero, a pharetra augue mollis interdum.' },
+            { src: require('../assets/image/c.jpg'), alt: 'Your description here 3', title: 'Third slide label', description: 'Nulla vitae elit libero, a pharetra augue mollis interdum.' },
+            { src: require('../assets/image/d.jpg'), alt: 'Your description here 4', title: 'Fouth slide label', description: 'Nulla vitae elit libero, a pharetra augue mollis interdum.' },
+            { src: require('../assets/image/e.jpg'), alt: 'Your description here 5', title: 'Fifty slide label', description: 'Nulla vitae elit libero, a pharetra augue mollis interdum.' }
+        ];
+
         return (
-            <div>
-            <Carousel>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100 h-100"
-                        src={img1} 
-                        alt="First slide"
-                    />
-                    <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100 h-100"
-                        src={img2} 
-                        alt="Third slide"
-                    />
-
-                    <Carousel.Caption>
-                        <h3>Second slide label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100 h-100"
-                        src={img3}
-                        alt="Third slide"
-                    />
-
-                    <Carousel.Caption>
-                        <h3>Third slide label</h3>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-            </Carousel>
+            <div className="BannarContorller">
+                <Carousel>
+                    {images.map(function (imageProps) {
+                        return (
+                            <Carousel.Item>
+                                <div className="bannerSrc" style={{ backgroundImage: `url(${imageProps.src})` }}></div>
+                                <Carousel.Caption>
+                                    <h3>{imageProps.title}</h3>
+                                    <p>{imageProps.description}</p>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                        );
+                    })}
+                </Carousel>
             </div>
         );
     }
