@@ -20,6 +20,8 @@ class Header extends Component {
             modalIsOpen: false,
             hidden: false
         }
+
+        this.closeModal = this.closeModal.bind(this)
     }
 
     changeMessage() {
@@ -68,7 +70,7 @@ class Header extends Component {
                     </Modal.Header>
                     <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
                     <Modal.Footer>
-                        <Button variant="secondary" onClick={() => this.closeModal()}>
+                        <Button variant="secondary" onClick={(this.closeModal)}>
                             Close
                         </Button>
                         <Button variant="primary" >
