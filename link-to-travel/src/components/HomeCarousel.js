@@ -5,11 +5,11 @@ class HomeCarousel extends Component {
     render() {
 
         const images = [
-            { src: require('../assets/image/a.jpg'), alt: 'Your description here 1', title: 'First slide label', description: 'Nulla vitae elit libero, a pharetra augue mollis interdum.' },
-            { src: require('../assets/image/b.jpg'), alt: 'Your description here 2', title: 'Second slide label', description: 'Nulla vitae elit libero, a pharetra augue mollis interdum.' },
-            { src: require('../assets/image/c.jpg'), alt: 'Your description here 3', title: 'Third slide label', description: 'Nulla vitae elit libero, a pharetra augue mollis interdum.' },
-            { src: require('../assets/image/d.jpg'), alt: 'Your description here 4', title: 'Fouth slide label', description: 'Nulla vitae elit libero, a pharetra augue mollis interdum.' },
-            { src: require('../assets/image/e.jpg'), alt: 'Your description here 5', title: 'Fifty slide label', description: 'Nulla vitae elit libero, a pharetra augue mollis interdum.' }
+            {id:'1', src: require('../assets/image/a.jpg'), alt: 'Your description here 1', title: 'First slide label', description: 'Nulla vitae elit libero, a pharetra augue mollis interdum.' },
+            {id:'2', src: require('../assets/image/b.jpg'), alt: 'Your description here 2', title: 'Second slide label', description: 'Nulla vitae elit libero, a pharetra augue mollis interdum.' },
+            {id:'3', src: require('../assets/image/c.jpg'), alt: 'Your description here 3', title: 'Third slide label', description: 'Nulla vitae elit libero, a pharetra augue mollis interdum.' },
+            {id:'4', src: require('../assets/image/d.jpg'), alt: 'Your description here 4', title: 'Fouth slide label', description: 'Nulla vitae elit libero, a pharetra augue mollis interdum.' },
+            {id:'5', src: require('../assets/image/e.jpg'), alt: 'Your description here 5', title: 'Fifty slide label', description: 'Nulla vitae elit libero, a pharetra augue mollis interdum.' }
         ];
 
         return (
@@ -17,7 +17,7 @@ class HomeCarousel extends Component {
                 <Carousel>
                     {images.map(function (imageProps) {
                         return (
-                            <Carousel.Item>
+                            <Carousel.Item key={imageProps.id}>
                                 <div className="bannerSrc" style={{ backgroundImage: `url(${imageProps.src})` }}></div>
                                 <Carousel.Caption>
                                     <h3>{imageProps.title}</h3>
