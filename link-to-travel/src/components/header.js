@@ -9,7 +9,8 @@ import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
-import '../assets/css/header.css';
+import '../assets/css/header.css'
+import Login from '../components/login';
 
 class Header extends Component {
     constructor() {
@@ -18,10 +19,13 @@ class Header extends Component {
             message: 'React-Bootstrap',
             visiable: true,
             modalIsOpen: false,
-            hidden: false
+            hidden: false,
+            username: '',
+            user: null
         }
 
-        this.closeModal = this.closeModal.bind(this)
+        this.closeModal = this.closeModal.bind(this);
+        this.loginInfo = this.loginInfo.bind(this)
     }
 
     changeMessage() {
@@ -37,13 +41,27 @@ class Header extends Component {
         })
     }
 
-    closeModal() {
+    loginInfo(email, password, closeModal) {
         this.setState({
-            isOpenModal: this.state.hidden
+            user:{
+                email,
+                password
+            },
+            isOpenModal: closeModal
         })
     }
+    signOut() {
+        // clear out user from state
+        this.setState({
+            user: null
+        })
+      }
 
 
+    closeModal(){
+
+    }
+    
     render() {
         return (
             <div>
@@ -56,27 +74,26 @@ class Header extends Component {
                         </Nav>
                         <Nav>
                             <Form inline>
-                                <FormControl type="text" placeholder="Username" className="mr-sm-2" />
-                                <FormControl type="password" placeholder="Password" className="mr-sm-2" />
-                                <Button className="btnLogin" onClick={() => this.loginContorl()}>Login</Button>
-                                {/* <Button className="btnSignUp" onClick={() => this.changeMessage()}>Sign Up</Button> */}
+                                {
+                                    (this.state.user)?
+                                        <div>
+                                            <Navbar.Text>
+                                                Signed in as: <a href="#login">{this.state.user.email}</a>
+                                            </Navbar.Text>
+                                            <Button className="btnSignUp" onClick={() => this.signOut()}>Sign out</Button> 
+                                        </div>
+                                    :
+                                    <div>
+                                        <Button className="btnLogin" onClick={() => this.loginContorl()}>Login</Button>
+                                        <Button className="btnSignUp" onClick={() => this.changeMessage()}>Sign Up</Button> 
+                                    </div> 
+                                }
                             </Form>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
                 <Modal show={this.state.isOpenModal} >
-                    <Modal.Header closeButton>
-                        <Modal.Title>Modal heading</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={(this.closeModal)}>
-                            Close
-                        </Button>
-                        <Button variant="primary" >
-                            Save Changes
-                        </Button>
-                    </Modal.Footer>
+                    <Login sendLoginData={this.loginInfo}/>
                 </Modal>
             </div>
         );
