@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Header from '../components/header';
-import Footer from '../components/footer';
+import Header from '../components/Header/header';
+import Footer from '../components/Footer/footer';
 import Carousel from '../components/HomeCarousel';
-import Profile from '../components/profile';
+import Profile from '../components/User/profile';
 
 class Homepage extends Component{
     render(){

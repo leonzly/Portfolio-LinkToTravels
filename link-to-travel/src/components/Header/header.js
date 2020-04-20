@@ -1,16 +1,14 @@
-import logo from '../logo.svg';
+import logo from '../../logo.svg';
 import React, { Component } from 'react';
-import '../App.css';
+import '../../App.css';
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
-// import Row from 'react-bootstrap/Row'
-// import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
-import '../assets/css/header.css'
-import Login from '../components/login';
+import '../Header/header.css'
+import Login from '../User/login';
 
 class Header extends Component {
     constructor() {
